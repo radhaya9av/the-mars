@@ -1,0 +1,8 @@
+
+
+.Wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 2em;
+    padding: 40px 0;
+}
