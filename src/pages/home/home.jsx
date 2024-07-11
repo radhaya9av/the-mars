@@ -14,7 +14,7 @@ function Home() {
   console.log(weather);
 
   const apiKey = import.meta.env.VITE_MARS_API_KEY;
-  const apiUrl = import.meta.env.VITE_MARS_API_URL;
+  const apiUrl = `https://api.nasa.gov/insight_weather/?api_key=${apiKey}&feedtype=json&ver=1.0`;
 
   useEffect(() => {
     const fetchFromAPI = async () => {
@@ -41,18 +41,22 @@ function Home() {
   return (
     <>
       <div className = "MarsWeather">
-        <div>
-          <h1 className='main-title'>
-              Latest weather at Elysium Plantitia
-          </h1>
-        </div>
-        <div>
-          <WeatherData />
-        </div>
-        <div className = "InfoWrapper">
-          <Info />
-          <Unit />
-        </div>
+        {loading ? (
+          <div>Loading ...</div>
+        ) : (
+          <>
+            <h1 className='main-title'>
+                Latest weather at Elysium Plantitia
+            </h1>
+          <div>
+            <WeatherData sol={weather[selectedSol]} isMetric={metric} />
+          </div>
+          <div className = "InfoWrapper">
+            <Info />
+            <Unit metric={metric} setMetric={setMetric} />
+          </div>
+          </>
+        )}
       </div>
     </>
   )
