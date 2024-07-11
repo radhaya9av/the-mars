@@ -1,6 +1,7 @@
 import Info from "../../components/Info"
 import Unit from "../../components/Unit"
 import WeatherData from "../../components/WeatherData"
+import "../../styles/Home.scss"
 
 function Home() {
   return (
