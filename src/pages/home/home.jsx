@@ -1,4 +1,5 @@
 import Info from "../../components/Info"
+import PreviousWeather from "../../components/PreviousWeather"
 import Unit from "../../components/Unit"
 import WeatherData from "../../components/WeatherData"
 import "../../styles/Home.scss"
@@ -19,6 +20,9 @@ function Home() {
           <Info />
           <Unit />
         </div>
+      </div>
+      <div>
+        <PreviousWeather />
       </div>
     </>
   )
