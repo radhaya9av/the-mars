@@ -1,36 +1,38 @@
 import React from 'react';
+import { formatTemperature } from '../helpers';
+
 import "../styles/WeatherData.scss";
 
-function WeatherData() {
+const WeatherData = ({ sol, isMetric }) => {
   
     return(
       <>
         <div className = "Wrapper">
             <div className = "Date">
-                <h2>Header</h2>
-                <p>Text</p>
+                <h2>{sol.sol}</h2>
+                <p>{sol.date}</p>
             </div>
 
             <div className = "Temp">
                 <h2 className='section-title'>Temp</h2>
                 <p className='reading'>
                     High:
-                <span> Temp</span>°
-                <span> F or C</span>
+                    <span> {formatTemperature(sol.maxTemp, isMetric)}</span>°
+                    <span> {isMetric ? ' C' : ' F'}</span>
                 </p>
                 <p className='reading'>
                     Low:
-                <span> Temp</span>°
-                <span> F or C</span>
+                    <span> {formatTemperature(sol.minTemp, isMetric)}</span>°
+                    <span> {isMetric ? ' C' : ' F'}</span>
                 </p>
             </div>
             <div
-            deg={180}
+            deg={sol.windDirectionDegrees}
             className = "Wind">
                 <h2 className='section-title'>Wind</h2>
                 <p className='reading'>
-                    <span>Speed</span>
-                    <span>kph or mph</span>
+                    <span>{sol.windSpeed}</span>
+                    <span>{isMetric ? ' kph' : ' mph'}</span>
                 </p>
 
                 <div className='wind__direction'>
