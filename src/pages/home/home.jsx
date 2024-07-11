@@ -1,3 +1,4 @@
+import Info from "../../components/Info"
 import WeatherData from "../../components/WeatherData"
 
 function Home() {
@@ -10,6 +11,9 @@ function Home() {
       </div>
       <div>
         <WeatherData />
+      </div>
+      <div className = "InfoWrapper">
+        <Info />
       </div>
     </>
   )
