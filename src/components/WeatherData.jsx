@@ -23,6 +23,19 @@ function WeatherData() {
                 <span> F or C</span>
                 </p>
             </div>
+            <div
+            deg={180}
+            className = "Wind">
+                <h2 className='section-title'>Wind</h2>
+                <p className='reading'>
+                    <span>Speed</span>
+                    <span>kph or mph</span>
+                </p>
+
+                <div className='wind__direction'>
+                    <div className='wind__arrow'></div>
+                </div>
+            </div>
         </div>
       </>
     )
