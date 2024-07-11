@@ -1,4 +1,5 @@
 import Info from "../../components/Info"
+import Unit from "../../components/Unit"
 import WeatherData from "../../components/WeatherData"
 
 function Home() {
@@ -14,6 +15,7 @@ function Home() {
       </div>
       <div className = "InfoWrapper">
         <Info />
+        <Unit />
       </div>
     </>
   )
