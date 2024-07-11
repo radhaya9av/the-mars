@@ -7,6 +7,7 @@ function Unit() {
       <>
         <div className = "UnitStyles">
             <label htmlFor='cel'>°C</label>
+            <div className = "Toggle"></div>
             <label htmlFor='fah'>°F</label>
         </div>
       </>

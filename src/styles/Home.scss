@@ -53,6 +53,35 @@ a:hover {
     color: var(--clr-accent-dark);
 }
 
+.MarsWeather {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2em;
+    max-width: 1000px;
+    margin: 40px 0;
+    border-radius: 20px;
+
+  .main-title {
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-light);
+    text-transform: uppercase;
+    color: var(--clr-accent);
+    letter-spacing: 2px;
+    grid-column: 1 / -1;
+  }
+
+  .section-title {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
+    margin: 0;
+  }
+
+  .reading {
+    font-size: var(--fs-h1);
+    margin: 0;
+    color: var(--clr-gray);
+  }
+}
+
 .InfoWrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
