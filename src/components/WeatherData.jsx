@@ -1,47 +1,43 @@
 import React from 'react';
+// Helpers
 import { formatTemperature } from '../helpers';
+// Styles
+import { Wrapper, Date, Temp, Wind } from './WeatherData.styles';
 
-import "../styles/WeatherData.scss";
 
-const WeatherData = ({ sol, isMetric }) => {
-  
-    return(
-      <>
-        <div className = "Wrapper">
-            <div className = "Date">
-                <h2>{sol.sol}</h2>
-                <p>{sol.date}</p>
-            </div>
+const WeatherData = ({sol, isMetric }) => (
+  <Wrapper>
+    <Date>
+      <h2>{sol.sol}</h2>
+      <p>{sol.date}</p>
+    </Date>
 
-            <div className = "Temp">
-                <h2 className='section-title'>Temp</h2>
-                <p className='reading'>
-                    High:
-                    <span> {formatTemperature(sol.maxTemp, isMetric)}</span>°
-                    <span> {isMetric ? ' C' : ' F'}</span>
-                </p>
-                <p className='reading'>
-                    Low:
-                    <span> {formatTemperature(sol.minTemp, isMetric)}</span>°
-                    <span> {isMetric ? ' C' : ' F'}</span>
-                </p>
-            </div>
-            <div
-            deg={sol.windDirectionDegrees}
-            className = "Wind">
-                <h2 className='section-title'>Wind</h2>
-                <p className='reading'>
-                    <span>{sol.windSpeed}</span>
-                    <span>{isMetric ? ' kph' : ' mph'}</span>
-                </p>
+    <Temp>
+      <h2 className='section-title'>Temp</h2>
+      <p className='reading'>
+        High:
+        <span> {formatTemperature(sol.maxTemp, isMetric)}</span>°
+        <span> {isMetric ? ' C' : ' F'}</span>
+      </p>
+      <p className='reading'>
+        Low:
+        <span> {formatTemperature(sol.minTemp, isMetric)}</span>°
+        <span> {isMetric ? ' C' : ' F'}</span>
+      </p>
+    </Temp>
 
-                <div className='wind__direction'>
-                    <div className='wind__arrow'></div>
-                </div>
-            </div>
-        </div>
-      </>
-    )
-};
+    <Wind deg={sol.windDirectionDegrees}>
+      <h2 className='section-title'>Wind</h2>
+      <p className='reading'>
+        <span>{sol.windSpeed}</span>
+        <span>{isMetric ? ' kph' : ' mph'}</span>
+      </p>
 
-export default WeatherData
+      <div className='wind__direction'>
+        <div className='wind__arrow'></div>
+      </div>
+    </Wind>
+  </Wrapper>
+);
+
+export default WeatherData;
