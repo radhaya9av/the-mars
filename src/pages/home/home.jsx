@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { formatDate } from '../../helpers';
-
+import marsData from '../../assets/marsData.json';
 
 import WeatherData from '../../components/WeatherData';
 import Info from '../../components/Info';
@@ -8,6 +8,7 @@ import Unit from '../../components/Unit';
 
 
 import {
+  GlobalStyle,
   MarsWeather,
   InfoWrapper,
 } from '../../styles/Home.styles';
@@ -19,9 +20,10 @@ const App = () => {
   const [metric, setMetric] = useState(true);
   console.log(weather);
 
+
   useEffect(() => {
-    const fetchFromAPI = async () => {
-      const weather = await (await fetch(API_URL)).json();
+    const fetchFromLocal = () => {
+      const weather = marsData;
       const marsWeather = weather.sol_keys.map((solKey) => {
         return {
           sol: solKey,
@@ -38,11 +40,12 @@ const App = () => {
       setLoading(false);
     };
 
-    fetchFromAPI();
+    fetchFromLocal();
   }, []);
 
   return (
     <>
+      <GlobalStyle />
       <MarsWeather>
         {loading ? (
           <div>Loading ...</div>
