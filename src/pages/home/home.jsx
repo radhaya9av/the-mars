@@ -13,6 +13,8 @@ import {
   InfoWrapper,
 } from '../../styles/Home.styles';
 
+import BGImage from '../../assets/the-mars-background.png';
+
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [weather, setWeather] = useState([]);
@@ -45,7 +47,7 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle bgImage={BGImage}/>
       <MarsWeather>
         {loading ? (
           <div>Loading ...</div>
