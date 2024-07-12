@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { formatDate } from '../../helpers';
 
-import Info from "../../components/Info"
-import Unit from "../../components/Unit"
-import WeatherData from "../../components/WeatherData"
-import "../../styles/Home.scss"
 
-function Home() {
+import WeatherData from '../../components/WeatherData';
+import Info from '../../components/Info';
+import Unit from '../../components/Unit';
+
+
+import {
+  MarsWeather,
+  InfoWrapper,
+} from '../../styles/Home.styles';
+
+const App = () => {
   const [loading, setLoading] = useState(true);
   const [weather, setWeather] = useState([]);
   const [selectedSol, setSelectedSol] = useState();
   const [metric, setMetric] = useState(true);
   console.log(weather);
 
-  const apiKey = import.meta.env.VITE_MARS_API_KEY;
-  const apiUrl = `https://api.nasa.gov/insight_weather/?api_key=${apiKey}&feedtype=json&ver=1.0`;
-
   useEffect(() => {
     const fetchFromAPI = async () => {
-      const weather = await (await fetch(apiUrl)).json();
+      const weather = await (await fetch(API_URL)).json();
       const marsWeather = weather.sol_keys.map((solKey) => {
         return {
           sol: solKey,
@@ -40,26 +43,24 @@ function Home() {
 
   return (
     <>
-      <div className = "MarsWeather">
+      <MarsWeather>
         {loading ? (
           <div>Loading ...</div>
         ) : (
           <>
             <h1 className='main-title'>
-                Latest weather at Elysium Plantitia
+              Latest weather at Elysium Plantitia
             </h1>
-            <div>
-              <WeatherData sol={weather[selectedSol]} isMetric={metric} />
-            </div>
-            <div className = "InfoWrapper">
+            <WeatherData sol={weather[selectedSol]} isMetric={metric} />
+            <InfoWrapper>
               <Info />
               <Unit metric={metric} setMetric={setMetric} />
-            </div>
+            </InfoWrapper>
           </>
         )}
-      </div>
+      </MarsWeather>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default App;

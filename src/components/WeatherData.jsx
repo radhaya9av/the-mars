@@ -2,7 +2,7 @@ import React from 'react';
 // Helpers
 import { formatTemperature } from '../helpers';
 // Styles
-import { Wrapper, Date, Temp, Wind } from './WeatherData.styles';
+import { Wrapper, Date, Temp, Wind } from '../styles/WeatherData.styles';
 
 
 const WeatherData = ({sol, isMetric }) => (

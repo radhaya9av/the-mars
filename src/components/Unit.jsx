@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UnitStyles, Toggle } from './Unit.styles';
+import { UnitStyles, Toggle } from '../styles/Unit.styles';
 
 
 const Unit = ({ metric, setMetric }) => (

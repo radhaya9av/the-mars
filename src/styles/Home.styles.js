@@ -1,12 +1,13 @@
+import styled, { createGlobalStyle } from 'styled-components';
 
-
-*,
-*::before,
-*::after {
+export const GlobalStyle = createGlobalStyle`
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
-}
+  }
 
-:root {
+  :root {
     --fw-light: 300;
     --fw-normal: 400;
     --fw-semi: 500;
@@ -20,9 +21,9 @@
     --clr-dark: #444;
     --clr-accent: #D06D6D;
     --clr-accent-dark: #613131;
-}
+  }
 
-.sr-only:not(:focus):not(:active) {
+  .sr-only:not(:focus):not(:active) {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     height: 1px;
@@ -30,35 +31,39 @@
     position: absolute;
     white-space: nowrap;
     width: 1px;
-}
+  }
 
-body {
+  body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
+    background-image: url(${props => props.bgImage});
     background-size: cover;
     height: 100vh;
+
     color: var(--clr-light);
-}
+  }
 
-h1, h2, h3 {
+  h1, h2, h3 {
     line-height: 1;
-}
+  }
 
-a {
+  a {
     color: var(--clr-accent);
-}
+  }
 
-a:hover {
+  a:hover {
     color: var(--clr-accent-dark);
-}
+  }
+`;
 
-.MarsWeather {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 2em;
-    max-width: 1000px;
-    margin: 40px 0;
-    border-radius: 20px;
+
+export const MarsWeather = styled.main`
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2em;
+  max-width: 1000px;
+  margin: 40px 0;
+  border-radius: 20px;
 
   .main-title {
     font-size: var(--fs-h1);
@@ -80,9 +85,9 @@ a:hover {
     margin: 0;
     color: var(--clr-gray);
   }
-}
+`;
 
-.InfoWrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
+export const InfoWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+`
