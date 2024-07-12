@@ -1,19 +1,13 @@
 import React from 'react';
-import "../styles/Unit.scss"
 
-const Unit = ({ metric, setMetric }) => {
-  
-    return(
-      <>
-        <div className = "UnitStyles">
-            <label htmlFor='cel'>°C</label>
-            <div
-            metric={metric} onClick={() => setMetric((prev) => !prev)}
-            className = "Toggle"></div>
-            <label htmlFor='fah'>°F</label>
-        </div>
-      </>
-    )
-};
+import { UnitStyles, Toggle } from './Unit.styles';
 
-export default Unit
+
+const Unit = ({ metric, setMetric }) => (
+  <UnitStyles>
+    <label htmlFor='cel'>°C</label>
+    <Toggle metric={metric} onClick={() => setMetric((prev) => !prev)} />
+    <label htmlFor='fah'>°F</label>
+  </UnitStyles>
+);
+export default Unit;
