@@ -8,6 +8,7 @@ import {
   FiRotateCw
 } from 'react-icons/fi'
 import { IconContext } from 'react-icons'
+import {Photo, Wrapper, Controlls, Photos, Counter} from '../styles/Carousel.styles'
 
 
 const ONE_SECOND_IN_MS = 1000
