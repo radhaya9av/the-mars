@@ -1,12 +1,19 @@
-
-import { useParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useParams, useHistory } from 'react-router-dom'
 import { Button } from 'arwes'
+import createDebug from 'debug'
+
+import Loader from '../../../components/Loader'
 import Slider from '../../../components/Slider'
 import ButtonLink from '../../../components/ButtonLink'
 import Project from '../../../components/Project'
-import Photos from './photos'
-import {SolSelector, RoverWrapper, CamerasList, CameraLink, PhotosWrapper} from '../styles/Rover.styles'
+import Error from '../../../components/Error'
 
+import { Photos } from './photos'
+import { useRoverStore } from '../../../stores/RoversStore'
+
+const debug = createDebug('mars:rover')
+const MIN_SOL = 0
 
 export const cameras = {
   fhaz: 'Front Hazard Avoidance',
@@ -61,6 +68,51 @@ const camerasByRover = {
 
 export default function Rover () {
   const { rover, sol, camera } = useParams()
+  const history = useHistory()
+  const [{ isLoading, error, maxSol }, roverActions] = useRoverStore()
+
+  useEffect(() => {
+    if (rover) {
+      debug(`Fetching "${rover}" data...`)
+      roverActions.fetchDetails({
+        rover
+      })
+    }
+  }, [roverActions, rover])
+
+  function setSolUrl (sol) {
+    history.push(`/photos/${rover}/${sol}`)
+  }
+
+  function handleAfterSolChange (newSol) {
+    setSolUrl(newSol)
+  }
+
+  function handleIncrementClick () {
+    const newSol = +sol + 1
+
+    if (newSol <= maxSol) {
+      setSolUrl(newSol)
+    }
+  }
+
+  function handleDecrementClick () {
+    const newSol = sol - 1
+
+    if (newSol >= MIN_SOL) {
+      setSolUrl(newSol)
+    }
+  }
+
+  if (isLoading) {
+    return <Loader />
+  }
+
+  if (error) {
+    return <Error>{error}</Error>
+  }
+
+  debug('data loaded.')
 
   return (
     <RoverWrapper>
