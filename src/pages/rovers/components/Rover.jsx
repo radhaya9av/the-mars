@@ -1,13 +1,12 @@
 
 import { useParams } from 'react-router-dom'
 import { Button } from 'arwes'
-
 import Slider from '../../../components/Slider'
 import ButtonLink from '../../../components/ButtonLink'
 import Project from '../../../components/Project'
-
-
 import Photos from './photos'
+import {SolSelector, RoverWrapper, CamerasList, CameraLink, PhotosWrapper} from '../styles/Rover.styles'
+
 
 export const cameras = {
   fhaz: 'Front Hazard Avoidance',
