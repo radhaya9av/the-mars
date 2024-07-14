@@ -91,3 +91,8 @@ export const InfoWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 `
+export const CallToAction = styled.p`
+  font-size: 40px;
+  padding: 20px;
+  margin: 0;
+`

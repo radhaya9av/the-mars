@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "arwes": "^1.0.0-next.24061301",
+    "@arwes/react": "^1.0.0-alpha.23",
     "date-fns": "^3.6.0",
     "debug": "^4.3.5",
     "ky": "^1.4.0",

@@ -5,12 +5,14 @@ import marsData from '../../assets/marsData.json';
 import WeatherData from '../../components/WeatherData';
 import Info from '../../components/Info';
 import Unit from '../../components/Unit';
+import ButtonLink from '../../components/ButtonLink'
 
 
 import {
   GlobalStyle,
   MarsWeather,
   InfoWrapper,
+  CallToAction
 } from '../../styles/Home.styles';
 
 import BGImage from '../../assets/the-mars-background.png';
@@ -64,6 +66,9 @@ const App = () => {
           </>
         )}
       </MarsWeather>
+      <ButtonLink to='photos'>
+        <CallToAction>Explore</CallToAction>
+      </ButtonLink>
     </>
   );
 };
